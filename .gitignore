@@ -216,3 +216,55 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---- CTF-specific additions ----
+
+# Secrets and credentials
+*.pem
+*.key
+id_rsa*
+secrets.*
+
+# Pwn / reversing artifacts
+core
+core.*
+*.o
+*.out
+*.elf
+a.out
+*.i64
+*.idb
+*.gpr
+*.rep
+.gdb_history
+peda-session-*
+.gef-*
+
+# Forensics / large captures
+*.pcap
+*.pcapng
+*.raw
+*.mem
+*.dmp
+*.img
+*.vmdk
+*.E01
+
+# Archives and downloads
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# Tool output / scratch
+output/
+tmp/
+scratch/
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
