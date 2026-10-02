@@ -67,19 +67,27 @@ your account — no password needed, because the session itself is treated as
 proof of identity for the website's backend. 
 
 ### Remediation
-1. Remove or heavily restrict any debug/diagnostic route that exposes session
-   or internal state; never ship these to production.
-2. Never expose session store contents (IDs, usernames, metadata) via any
-   client-reachable route.
-3. Rotate session IDs on privilege changes (e.g. login) and enforce real
-   expirations — avoid permanent (`_permanent: True`) sessions.
-4. Bind sessions to additional signals (IP, user-agent) or use signed/
-   encrypted cookies so a copied raw ID can't be reused out of context.
-5. Treat any user-facing content (comments, forums, etc.) as a potential leak
-   vector for internal routes — discovering a path should never be enough to
-   compromise the system on its own.
+**Fix the leak itself**
+- Remove the `/sessions` debug route, or put it behind authentication and network restrictions and disable it in prduction builds.
+- Never return session store contents (IDs, usernames, metadata) from any client-reachable route, including error pages and logs.
+- Treat internal routes as secret-adjacent: don't reference them in user-facing content such as comments.
+
+**Limit the damage if a session ID leaks**
+- Use short idle and absolute expiry times, and avoid permanent sessions (`_permanent: True`).
+- Invalidate sessions server-side on logout, password change and privilege changes.
+- Store a hash of the session ID server-side, so a leaked store doesn't contain usable IDs.
+- Use shorter lifetimes or re-authentication for privileged (admin) sessions.
+
+**Defense in depth (helps, but doesn't fix this bug on its own)**
+- Set `HttpOnly`, `Secure` and `SameSite` on session cookies. These reduce theft through XSS and network sniffing, not a server that hands IDs out.
+- Signed or encrypted cookies stop an attacker forging an ID, but not reusing a valid one they have copied.
+- Binding sessions to IP or user-agent can flag anomalies, but both can be spoofed, so don't rely on them.
+- Regenerate the session ID on login. This defends against session fixation, a related but different bug.
+
 
 ### Classification
-- **CWE-200** — Exposure of Sensitive Information to an Unauthorized Actor
-- **CWE-384** — Session Fixation (related: app accepts attacker-supplied/reused session IDs)
-- **OWASP Top 10** — A01:2021 Broken Access Control / A04:2021 Insecure Design
+- **CWE-200:** Exposure of Sensitive Information to an Unauthorized Actor (the core bug)
+- **CWE-489:** Active Debug Code (the leftover `/sessions` route)
+- **CWE-306:** Missing Authentication for Critical Function (no auth on that route)
+- **CWE-613:** Insufficient Session Expiration (permanent sessions stay valid once leaked)
+- **OWASP Top 10 (2021):** A01 Broken Access Control, A04 Insecure Design, A05 Security Misconfiguration, A07 Identification and Authentication Failures
