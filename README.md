@@ -9,11 +9,11 @@ ctf-toolkit-and-concepts/
 ├── LICENSE
 ├── concepts/
 │   └── client-side-information-leaks.md
+│   └── images
 ├── tools/
 │   └── decoder/
 ├── writeups/
 │   └── cylab-academy/
-└── images/
 ```
 
 | Folder | What's inside |
