@@ -60,11 +60,11 @@ Full account takeover of any leaked session, including `admin`, via a pure
 information-disclosure bug — no exploitation of the victim required
 
 ### real life example
-If you leave your Instagram account logged in on a public computer or such , your
-session cookie stays active in that browser. Anyone who comes along after
-you can copy that session value (or just reuse the open session) and access
-your account — no password needed, because the session itself is treated as
-proof of identity for the website's backend. 
+A session ID works like a hotel key card: whoever holds it gets in, and the door doesn't check who they are. If the hotel accidentally posts a list of valid key cards on a public notice board, anyone can walk into any room.
+
+If you stay logged in to an account like Instagram on a shared computer, the session cookie stays active in that browser. Anyone using the computer afterwards could reuse that session, because websites generally treat the session value as proof of identity for the website's backend.
+
+In both cases the attacker never needs the password. The difference is how they get the session: from a browser left logged in, or, in this challenge, from the server leaking every session ID through `/sessions`.
 
 ### Remediation
 **Fix the leak itself**
