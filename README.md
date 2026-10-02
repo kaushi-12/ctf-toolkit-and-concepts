@@ -38,7 +38,7 @@ ctf-toolkit-and-concepts/
 ## Disclaimer
 
 For educational purposes only. Only test systems you own or have explicit permission to test, and practice on legal platforms and official CTF events. Flags and solutions from active competitions are not published here.
-
+Artifacts and flags may differ between versions of a challenge, so flags shown here may not match yours.
 ## License
 
 Released under the [MIT License](LICENSE).
