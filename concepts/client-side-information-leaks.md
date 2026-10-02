@@ -57,7 +57,14 @@ after the cookie swap.
 
 ### Impact
 Full account takeover of any leaked session, including `admin`, via a pure
-information-disclosure bug — no exploitation of the victim required.
+information-disclosure bug — no exploitation of the victim required
+
+### real life example
+If you leave your Instagram account logged in on a public computer or such , your
+session cookie stays active in that browser. Anyone who comes along after
+you can copy that session value (or just reuse the open session) and access
+your account — no password needed, because the session itself is treated as
+proof of identity for the website's backend. 
 
 ### Remediation
 1. Remove or heavily restrict any debug/diagnostic route that exposes session
