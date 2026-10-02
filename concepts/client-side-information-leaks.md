@@ -2,6 +2,10 @@
 
 ## Vulnerability: Session Enumeration via Exposed `/sessions` Endpoint
 
+### Question
+cylab , pico ctf : 'old sessions'
+level:easy 
+
 ### Summary
 The application exposes a debug/diagnostic endpoint at `/sessions` that dumps
 the entire server-side session store in plaintext — including session IDs and
@@ -11,6 +15,7 @@ with no additional binding (e.g. to IP, user-agent, or a signed/encrypted
 payload validated against tampering), an attacker can simply copy a leaked
 session ID into their own cookie and be authenticated as that user —
 including `admin` — without ever knowing a password.
+
 
 ### Discovery
 While browsing the public comments feed on the homepage, one comment
