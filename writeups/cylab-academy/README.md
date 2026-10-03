@@ -9,7 +9,7 @@ solve, not just the steps.
 | Section | What's inside | Status |
 |---------|---------------|--------|
 | [picoCTF](./picoctf/) | picoCTF challenges, grouped by category | In progress |
-| Academy modules | Lessons and exercises from Cylab Academy itself | Planned |
+| other ctf  | Lessons and exercises | Planned |
 
 ## Scope
 
