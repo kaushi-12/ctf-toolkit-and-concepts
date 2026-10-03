@@ -12,7 +12,7 @@ ctf-toolkit-and-concepts/
 │   └── images
 ├── tools/
 │   └── decoder/
-├── writeups/
+├── questions/
 │   └── cylab-academy/
 ```
 
@@ -33,7 +33,7 @@ ctf-toolkit-and-concepts/
 
 ## Write-ups
 
-- [`cylab-academy/`](writeups/cylab-academy/): walkthroughs from Cylab Academy
+- [`cylab-academy/`](questions/cylab-academy/): walkthroughs from Cylab Academy
 
 ## Disclaimer
 
