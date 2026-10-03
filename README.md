@@ -12,7 +12,7 @@ ctf-toolkit-and-concepts/
 │   └── images
 ├── tools/
 │   └── decoder/
-├── questions/
+├── writeups/
 │   └── cylab-academy/
 ```
 
