@@ -90,4 +90,4 @@ In both cases the attacker never needs the password. The difference is how they 
 - **CWE-489:** Active Debug Code (the leftover `/sessions` route)
 - **CWE-306:** Missing Authentication for Critical Function (no auth on that route)
 - **CWE-613:** Insufficient Session Expiration (permanent sessions stay valid once leaked)
-- **OWASP Top 10 (2021):** A01 Broken Access Control, A04 Insecure Design, A05 Security Misconfiguration, A07 Identification and Authentication Failures
+- **OWASP Top 10 (2021):** A01 Broken Access Control, A04 Insecure Design, A05 Security Misconfiguration, A07 Identification and Authentication Failures nnnnnnn
